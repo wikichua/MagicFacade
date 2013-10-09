@@ -63,6 +63,7 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
 	public function testDevice()
 	{
 		(new Device)->testing();
+		// Device::testing();
 	}
 
 	/**
