@@ -3,9 +3,9 @@ namespace Facades;
 
 trait Facade
 {
-	private static $__instance = NULL;
-    private static $__objectStatic = NULL;
-    private static $__objectNonStatic = NULL;
+	protected static $__instance = NULL;
+    protected static $__objectStatic = NULL;
+    protected static $__objectNonStatic = NULL;
 
 	public static function load($instance)
 	{

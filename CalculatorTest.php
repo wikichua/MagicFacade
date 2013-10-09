@@ -7,6 +7,7 @@ require_once 'Facades/Calculator.php';
 require_once 'Libs/Sub/SubSub/Internal.php';
 require_once 'Libs/Sub/Formula.php';
 require_once 'Libs/CalculatorBuilder.php';
+require_once 'Device.php';
 
 use \Facades\Calculator;
 /**
@@ -57,6 +58,11 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
 	public function testCheckDeeperExtendsWork()
 	{
 		$this->assertEquals('the internal', Calculator::getInternal());
+	}
+
+	public function testDevice()
+	{
+		(new Device)->testing();
 	}
 
 	/**
