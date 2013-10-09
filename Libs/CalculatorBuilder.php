@@ -1,7 +1,9 @@
 <?php
 namespace Libs;
 
-class CalculatorBuilder 
+require_once __dir__ . '/Sub/Formula.php';
+
+class CalculatorBuilder extends \Libs\Sub\Formula
 {
 
 	protected $name;

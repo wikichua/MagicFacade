@@ -3,8 +3,10 @@ error_reporting(-1);
 ini_set('display_errors', 1);
 
 require_once 'Facades/Facade.php';
-require_once 'Libs/CalculatorBuilder.php';
 require_once 'Facades/Calculator.php';
+require_once 'Libs/Sub/SubSub/Internal.php';
+require_once 'Libs/Sub/Formula.php';
+require_once 'Libs/CalculatorBuilder.php';
 
 use \Facades\Calculator;
 /**
@@ -45,6 +47,16 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('pai',$obj2->sample);
 		$this->assertEquals('pai',$obj2->output());
 		$this->assertEquals('pai',Calculator::output());
+	}
+
+	public function testCheckExtendsWork()
+	{
+		$this->assertEquals('the formula', Calculator::getFormula());
+	}
+
+	public function testCheckDeeperExtendsWork()
+	{
+		$this->assertEquals('the internal', Calculator::getInternal());
 	}
 
 	/**
