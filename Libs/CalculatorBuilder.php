@@ -10,9 +10,7 @@ class CalculatorBuilder
 
 	public function make()
 	{
-		if(is_null(static::$_instance))
-			static::$_instance = new self();
-		return static::$_instance;
+		return $this;
 	}
 
 	public function testing()

@@ -23,9 +23,16 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
 	public function testUsingMagicGetSet()
 	{
 		$obj = Calculator::make();
+		$obj2 = Calculator::make();
+
+		
 		$obj->name = 'wiki';
 		$this->assertEquals('wiki',$obj->name);
 		$this->assertEquals('wiki',$obj->getVariable('name'));
+
+		$obj2->name = 'pai';
+		$this->assertEquals('pai',$obj2->name);
+		$this->assertEquals('pai',$obj2->getVariable('name'));
 	}
 
 	/**
