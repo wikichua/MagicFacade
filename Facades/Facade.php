@@ -24,18 +24,6 @@ trait Facade
         return static::__facadeCaller($name, $arguments);  
 	}
 
-    public function __set($name, $value)
-    {
-        $object = static::$__object;
-        $object->$name = $value;
-        var_dump($object);
-    }
-
-    public function  __get($name) {  
-        $object = static::$__object;
-        return $object->$name;
-    }
-
     private static function __facadeCaller($name, $arguments)
     {
         static::$__object = new static::$__instance();
