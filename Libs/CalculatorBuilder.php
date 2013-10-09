@@ -4,12 +4,14 @@ namespace Libs;
 class CalculatorBuilder 
 {
 
-	private static $_instance = NULL;
+	protected $name;
+	public $sample;
 
 	public function __construct(){}
 
 	public function make()
 	{
+		$this->name = 'default';
 		return $this;
 	}
 
@@ -23,9 +25,19 @@ class CalculatorBuilder
 		return "$a and $b";
 	}
 
-	public function getVariable($name)
+	public function getName()
 	{
-		return $this->$name;
+		return $this->name;
+	}
+
+	public function setName($value)
+	{
+		$this->name = $value;
+	}
+
+	public function output()
+	{
+		return $this->sample;
 	}
 
 }

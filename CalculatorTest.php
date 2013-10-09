@@ -20,19 +20,31 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('1 and 2', Calculator::testingArguments(1,2));		
 	}
 
+	public function testCallMake()
+	{
+		$obj = (new Calculator)->make();
+		$this->assertEquals('default',$obj->getName());
+		$this->assertEquals('default',Calculator::getName());
+	}
+
 	public function testUsingMagicGetSet()
 	{
-		$obj = Calculator::make();
-		$obj2 = Calculator::make();
+		$obj = new Calculator();
 
-		
-		$obj->name = 'wiki';
-		$this->assertEquals('wiki',$obj->name);
-		$this->assertEquals('wiki',$obj->getVariable('name'));
+		$obj->sample = 'wiki';
+		$this->assertEquals('wiki',$obj->sample);
+		$obj->output();
+		Calculator::output();
 
-		$obj2->name = 'pai';
-		$this->assertEquals('pai',$obj2->name);
-		$this->assertEquals('pai',$obj2->getVariable('name'));
+		$obj2 = new Calculator();
+
+		$obj2->sample = 'test';
+		$this->assertEquals('test',$obj2->sample);
+		$obj2->output();
+		Calculator::output();
+
+		Calculator::setName('pai');
+		$this->assertEquals('pai',Calculator::getName());
 	}
 
 	/**
