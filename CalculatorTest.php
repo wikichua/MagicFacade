@@ -17,7 +17,10 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
 	public function testCallStaticWithSuccess()
 	{
 		$this->assertEquals('Hello World', Calculator::testing());
-		$this->assertEquals('1 and 2', Calculator::testingArguments(1,2));		
+		$this->assertEquals('1 and 2', Calculator::testingArguments(1,2));	
+
+		Calculator::setName('pai');
+		$this->assertEquals('pai',Calculator::getName());	
 	}
 
 	public function testCallMake()
@@ -33,18 +36,15 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
 
 		$obj->sample = 'wiki';
 		$this->assertEquals('wiki',$obj->sample);
-		$obj->output();
-		Calculator::output();
+		$this->assertEquals('wiki',$obj->output());
+		$this->assertEquals('wiki',Calculator::output());
 
 		$obj2 = new Calculator();
 
-		$obj2->sample = 'test';
-		$this->assertEquals('test',$obj2->sample);
-		$obj2->output();
-		Calculator::output();
-
-		Calculator::setName('pai');
-		$this->assertEquals('pai',Calculator::getName());
+		$obj2->sample = 'pai';
+		$this->assertEquals('pai',$obj2->sample);
+		$this->assertEquals('pai',$obj2->output());
+		$this->assertEquals('pai',Calculator::output());
 	}
 
 	/**
