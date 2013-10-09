@@ -17,7 +17,15 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
 	public function testCallStaticWithSuccess()
 	{
 		$this->assertEquals('Hello World', Calculator::testing());
-		$this->assertEquals('1 and 2', Calculator::testingArguments(1,2));
+		$this->assertEquals('1 and 2', Calculator::testingArguments(1,2));		
+	}
+
+	public function testUsingMagicGetSet()
+	{
+		$obj = Calculator::make();
+		$obj->name = 'wiki';
+		$this->assertEquals('wiki',$obj->name);
+		$this->assertEquals('wiki',$obj->getVariable('name'));
 	}
 
 	/**
@@ -34,10 +42,6 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals("Can I'm called?",Calculator::functionInCalculator());
 	}
 
-	public function testCallFunctionOnAnotherInstance()
-	{
-		// if par with call static function, function must declare in protected or private
-		$this->assertEquals("testing successful",Calculator::testing1());
-	}
+	
 
 }

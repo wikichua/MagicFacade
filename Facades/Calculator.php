@@ -8,7 +8,6 @@ class Calculator
 	public static function register()
 	{
 		(new self)->load('\Libs\CalculatorBuilder');
-		(new self)->load('\Libs\Test');
 	}
 
 	protected function functionInCalculator()
