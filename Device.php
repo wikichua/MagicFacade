@@ -2,11 +2,15 @@
 
 class Device extends \Facades\Calculator
 {
+	public 
+		$formula, 
+		$internal;
+
 	public function testing()
 	{
 
-		var_dump(static::getFormula());
-		var_dump(self::getInternal());
+		$this->formula = static::getFormula();
+		$this->internal = self::getInternal();
 	
 	}
 }

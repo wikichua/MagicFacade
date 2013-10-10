@@ -9,7 +9,10 @@ class CalculatorBuilder extends \Libs\Sub\Formula
 	protected $name;
 	public $sample;
 
-	public function __construct(){}
+	public function __construct(){
+
+		$this->sample2 = 'another sample';
+	}
 
 	public function make()
 	{
@@ -39,6 +42,7 @@ class CalculatorBuilder extends \Libs\Sub\Formula
 
 	public function output()
 	{
+
 		return $this->sample;
 	}
 

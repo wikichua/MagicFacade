@@ -60,10 +60,17 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('the internal', Calculator::getInternal());
 	}
 
-	public function testDevice()
+	public function testExtendedObjectCanCreatePropertyDynamically()
 	{
-		(new Device)->testing();
-		// Device::testing();
+		$obj = new Device;
+		$obj->testing();
+		$this->assertEquals('the formula', $obj->formula);
+		$this->assertEquals('the internal', $obj->internal);
+	}
+
+	public function testDynamicPropertySetInTheObject()
+	{
+		$this->assertEquals('another sample',(new Calculator)->sample2);
 	}
 
 	/**
