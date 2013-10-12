@@ -24,6 +24,9 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
 
 		Calculator::setName('pai');
 		$this->assertEquals('pai',Calculator::getName());	
+
+		Calculator::make();
+		$this->assertEquals('default',Calculator::getName());
 	}
 
 	public function testCallMake()
