@@ -11,7 +11,7 @@ trait Facade
 	{
         if(is_null(static::$__instance))
         {
-    		static::$__instance = $instance;
+    		static::$__instance = is_object($instance)? $instance: new $instance;
         }
 	}
 
@@ -59,7 +59,7 @@ trait Facade
 
         return static::$__objectStatic = is_null( static::$__objectStatic ) ?
             (
-                is_null( static::$__instance ) ? NULL : new static::$__instance()
+                is_null( static::$__instance ) ? NULL : static::$__instance
             ) : static::$__objectStatic;
     }
 

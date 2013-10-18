@@ -1,23 +1,28 @@
 <?php
 namespace Libs;
 
-
-
 class CalculatorBuilder extends \Libs\Sub\Formula
 {
 
 	protected $name;
 	public $sample;
+	protected $Building;
 
-	public function __construct(){
+	public function __construct(\Libs\Interfaces\BuilderInterface $Building = NULL){
 
 		$this->sample2 = 'another sample';
+		$this->Building = $Building;
 	}
 
 	public function make()
 	{
 		$this->name = 'default';
 		return $this;
+	}
+
+	public function makeBuilding()
+	{
+		return $this->Building->make();
 	}
 
 	public function testing()
@@ -42,7 +47,6 @@ class CalculatorBuilder extends \Libs\Sub\Formula
 
 	public function output()
 	{
-
 		return $this->sample;
 	}
 

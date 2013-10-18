@@ -2,11 +2,13 @@
 error_reporting(-1);
 ini_set('display_errors', 1);
 
+require_once 'Libs/Interfaces/BuilderInterface.php';
 require_once 'Facades/Facade.php';
-require_once 'Facades/Calculator.php';
 require_once 'Libs/Sub/SubSub/Internal.php';
 require_once 'Libs/Sub/Formula.php';
 require_once 'Libs/CalculatorBuilder.php';
+require_once 'Libs/Building.php';
+require_once 'Facades/Calculator.php';
 require_once 'Device.php';
 
 use \Facades\Calculator;
@@ -90,6 +92,17 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals("Can I'm called?",Calculator::functionInCalculator());
 	}
 
+
+	/**
+	 * @covers class::ItCanAllowDependencyInjection()
+	 */
+	public function testItCanAllowDependencyInjection()
+	{
+		$Obj = new Calculator(new \Libs\Building);
+
+		$this->assertSame('Libs\Building', $Obj->makeBuilding());
+		$this->assertSame('Libs\Building', Calculator::makeBuilding());
+	}
 	
 
 }
